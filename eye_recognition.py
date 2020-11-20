@@ -1,7 +1,7 @@
 import os
 import numpy as np
 from keras.models import Sequential, model_from_json
-from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense
+from keras.layers import Conv2D, AveragePooling2D, Flatten, Dense
 from keras.preprocessing.image import ImageDataGenerator
 
 # Hyperparameters
@@ -20,11 +20,10 @@ STEP_SIZE_VALID = valid_generator.n // valid_generator.batch_size
 
 model = Sequential()
 
-model.add(Conv2D(filters=32, kernel_size=(3, 3), activation='relu', input_shape=(IMG_SIZE,IMG_SIZE,1)))
-model.add(MaxPooling2D((2, 2)))
-model.add(Conv2D(filters=64, kernel_size=(3, 3), activation='relu'))
-model.add(MaxPooling2D((2, 2)))
-model.add(Conv2D(filters=64, kernel_size=(3, 3), activation='relu'))
+model.add(Conv2D(filters=6, kernel_size=(3, 3), activation='relu', input_shape=(IMG_SIZE,IMG_SIZE,1)))
+model.add(AveragePooling2D())
+model.add(Conv2D(filters=16, kernel_size=(3, 3), activation='relu'))
+model.add(AveragePooling2D())
 
 model.add(Flatten())
 model.add(Dense(units=120, activation='relu'))
