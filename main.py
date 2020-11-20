@@ -12,8 +12,6 @@ model = load_model()
 
 # Webcam settings
 cam = cv.VideoCapture(0)
-cam.set(cv.CAP_PROP_FRAME_WIDTH, 1280)
-cam.set(cv.CAP_PROP_FRAME_HEIGHT, 720)
 
 if not cam.isOpened():
     raise IOError('Cannot open webcam!')
