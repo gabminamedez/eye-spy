@@ -1,4 +1,4 @@
 # eye-spy
-This is a face recognition application with Python.
+A face liveliness detection project that takes in video feed as input and provides live feedback on whether or not a subject's eyes are open.
 
 ## 🔨 Work in progress
